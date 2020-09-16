@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HR Department System</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <a href="/">Home</a>
+    <a href="/getbooks">List Books</a>
+    <a href="/deletebook">Delete book</a>
+    <a href="/addbook">Add book</a>
+
+    <a href="/getauthors">List Author</a>
+    <a href="/addauthor">Add Author</a>
+    <a href="/updateauthor">Update Author</a>
+
+    <div class="container">
+      <h1>Delete Book</h1>
+      <form name="delBookForm" action="/deletebook" method="post">
+        <label>ISBN</label>
+        <input type="text" name="ISBN" autocomplete="off" />
+
+        <button class="registerbtn" type="submit">Delete Book</button><br />
+      </form>
+    </div>
+  </body>
+</html>

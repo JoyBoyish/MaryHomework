@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FIT 2095</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <a href="/">Home</a>
+    <a href="/getbooks">List Books</a>
+    <a href="/deletebook">Delete book</a>
+    <a href="/addbook">Add book</a>
+
+    <a href="/getauthors">List Author</a>
+    <a href="/addauthor">Add Author</a>
+    <a href="/updateauthor">Update Author</a>
+
+    <div class="container">
+      <h1>Add New Author</h1>
+
+      <form name="addAuthorForm" action="/addauthor" method="post">
+        <label>First Name</label>
+        <input type="text" name="first_name" autocomplete="off"/ >
+
+        <label>Last Name</label>
+        <input type="text" name="last_name" autocomplete="off" />
+
+        <label>Date of Birth</label>
+        <input type="date" name="birth" autocomplete="off" />
+
+        <label>State</label>
+        <input type="text" name="state" autocomplete="off" />
+
+        <label>Suburb</label>
+        <input type="text" name="suburb" autocomplete="off" />
+
+        <label>Street</label>
+        <input type="text" name="street" autocomplete="off" />
+
+        <label>Unit</label>
+        <input type="text" name="unit" autocomplete="off" />
+
+        <label>Number of Books</label>
+        <input type="number" name="num_books" autocomplete="off" />
+
+        <button class="registerbtn" type="submit">Add Author</button><br />
+      </form>
+    </div>
+  </body>
+</html>
