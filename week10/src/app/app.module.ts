@@ -13,13 +13,26 @@ import { AddactorComponent } from './addactor/addactor.component';
 import { UpdateactorComponent } from './udpateactor/updateactor.component';
 import { DeleteactorComponent } from './deleteactor/deleteactor.component';
 import { RouterModule, Routes } from '@angular/router';
+import { AddmovieComponent } from './addmovie/addmovie.component';
+import { DeletemovieComponent } from './deletemovie/deletemovie.component';
+import { ListmoviesComponent } from './listmovies/listmovies.component';
+import { UpdatemovieComponent } from './updatemovie/updatemovie.component';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 const appRoutes: Routes = [
   { path: 'listactors', component: ListactorsComponent },
   { path: 'addactor', component: AddactorComponent },
   { path: 'updateactor', component: UpdateactorComponent },
   { path: 'deleteactor', component: DeleteactorComponent },
+
+  { path: 'listmovies', component: ListmoviesComponent },
+  { path: 'addmovie', component: AddmovieComponent },
+  { path: 'updatemovie', component: UpdatemovieComponent },
+  { path: 'deletemovie', component: DeletemovieComponent },
   { path: '', redirectTo: '/listactors', pathMatch: 'full' },
+
+  { path: 'pagenotfound', component: NotFoundPageComponent },
+  { path: '**', redirectTo: '/pagenotfound', pathMatch: 'full' },
 ];
 
 @NgModule({
@@ -29,6 +42,11 @@ const appRoutes: Routes = [
     AddactorComponent,
     UpdateactorComponent,
     DeleteactorComponent,
+    AddmovieComponent,
+    DeletemovieComponent,
+    ListmoviesComponent,
+    UpdatemovieComponent,
+    NotFoundPageComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

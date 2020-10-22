@@ -23,7 +23,7 @@ export class DeleteactorComponent implements OnInit {
   //Delete Actor
   onDeleteActor(item) {
     this.dbService.deleteActor(item._id).subscribe((result) => {
-      this.onGetActors();
+      // this.onGetActors();
       this.router.navigate(['/listactors']);
     });
   }

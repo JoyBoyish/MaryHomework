@@ -1,0 +1,55 @@
+<!-- 8th Section: Add actor to movie -->
+<div class="section">
+  <!--movie table-->
+  <h3>Available Movies</h3>
+  <table class="table table-striped">
+    <tr>
+      <th>Title</th>
+      <th>Production Year</th>
+      <th>Select!</th>
+    </tr>
+    <tr *ngFor="let item of moviesDB">
+      <td>{{ item.title }}</td>
+      <td>{{ item.year }}</td>
+      <td>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="onSelectMovie(item)"
+        >
+          To Movie
+        </button>
+      </td>
+    </tr>
+  </table>
+  <hr />
+
+  <hr />
+
+  <!--actor table-->
+  <h3>Available Actors</h3>
+  <table class="table table-striped">
+    <tr>
+      <th>Full Name</th>
+      <th>Birth Year</th>
+      <th>Select!</th>
+    </tr>
+    <tr *ngFor="let item of actorsDB">
+      <td>{{ item.name }}</td>
+      <td>{{ item.bYear }}</td>
+      <td>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="onSelectActor(item)"
+        >
+          Add Actor
+        </button>
+      </td>
+    </tr>
+  </table>
+  <!--confirm button-->
+  <button type="submit" class="btn btn-primary" (click)="onAddActorToMovie()">
+    Add Actor To Movie
+  </button>
+</div>
