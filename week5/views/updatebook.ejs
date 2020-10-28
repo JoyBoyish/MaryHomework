@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HR Department System</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <a href="/">Home</a>
+    <a href="/getbooks">List Books</a>
+    <a href="/addbook">Add Book</a>
+    <a href="/deletebook">Delete book</a>
+
+    <div class="container">
+      <h1>Update Book</h1>
+
+      <form name="updateBookForm" action="/updatebook" method="post">
+        <label>ISBN</label>
+        <input type="text" name="ISBN" autocomplete="off" />
+
+        <label>Title</label>
+        <input type="text" name="title" autocomplete="off" />
+
+        <label>Author</label>
+        <input type="text" name="author" autocomplete="off" />
+
+        <label>Date of Publication</label>
+        <input
+          type="date"
+          name="date"
+          placeholder="dd/mm/yyyy"
+          autocomplete="off"
+        />
+
+        <label>Summary</label>
+        <input type="text" name="summary" autocomplete="off" />
+        <button class="registerbtn" type="submit">Update Book</button><br />
+      </form>
+    </div>
+  </body>
+</html>

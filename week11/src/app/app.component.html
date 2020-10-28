@@ -1,0 +1,33 @@
+<div>
+  <div class="section" *ngFor="let item of pollObj.options">
+    <div class="custom-control custom-radio">
+      <input
+        type="radio"
+        id="customRadio1"
+        name="customRadio"
+        class="custom-control-input"
+      />
+      <label class="custom-control-label" for="customRadio1">{{
+        item.text
+      }}</label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="onVote()">VOTE</button>
+</div>
+
+<div style="display: block">
+  <canvas
+    baseChart
+    [data]="pieChartData"
+    [labels]="pieChartLabels"
+    [chartType]="pieChartType"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins"
+    [legend]="pieChartLegend"
+  >
+  </canvas>
+</div>
+
+<div class="jumbotron text-center">
+  <p>FIT2095 Chat Application</p>
+</div>

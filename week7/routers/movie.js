@@ -78,6 +78,19 @@ module.exports = {
     );
   },
 
+    // delete movies before a year
+    deleteMoviesBefore: function (req, res) {
+      Movie.deleteMany(
+        { year: { $lt: req.body.year} },
+        function (err, doc) {
+          if (err) {
+            return res.status(400).json(err);
+          }
+          res.json(doc);
+        }
+      );
+    },
+
   addActorToMovie: function (req, res) {
     Movie.findOne({ _id: req.params.movieid }, function (err, movie) {
       if (err) return res.status(400).json(err);

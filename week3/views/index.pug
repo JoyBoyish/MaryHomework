@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    title= "warehouse management system"
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script.
+      // get delete id from the input and route
+      function delItem() {
+        let itemId = document.getElementById('del_input').value;
+        window.location.href = "/removeitemid/"+ String(itemId);
+      }
+      // get new item information from the inputs and route
+      function addItem() {
+        let itemName = document.getElementById('item_name').value;
+        let itemCount = document.getElementById('item_count').value;
+        let itemCost = document.getElementById('item_cost').value;
+
+        window.location.href = "/newItem/?name="+ itemName
+        +"&count="+itemCount
+        +"&cost="+itemCost;
+      }
+  body
+    //- form(name = "addItemForm", action = "/newItem/" method="get")
+    input(id = "item_name" type='text', placeholder='item name', name='name')
+    input(id = "item_count" type='text', placeholder='item count', name='count')
+    input(id = "item_cost" type='text', placeholder='item cost', name='cost')
+    button(type="button" onClick = "addItem()") add new item
+
+    br
+
+    //- form(name = "removeItemForm", action = "/removeitemid/" method="get")
+    input(id = 'del_input', type='text', placeholder='delete item', name='removeId')
+    button(type="button" onClick = 'delItem()') delete item
+
+    br
+
+    button(type="button" onClick = "window.location.href = '/getallitems'") List all items
+
+    br
+
+    button(type="button" onClick = "window.location.href = '/getwarehousevalue'") Get warehouse total value
+

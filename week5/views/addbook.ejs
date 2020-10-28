@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FIT 2095</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <a href="/">Home</a>
+    <a href="/getbooks">List Books</a>
+    <a href="/updatebook">Update Book</a>
+    <a href="/deletebook">Delete book</a>
+
+    <div class="container">
+      <h1>Add New Book</h1>
+
+      <form name="addBookForm" action="/addbook" method="post">
+        <label>Title</label>
+        <input type="text" name="title" autocomplete="off"/ >
+
+        <label>Author</label>
+        <input type="text" name="author" autocomplete="off" />
+
+        <label>ISBN</label>
+        <!--get ISBN from the render function-->
+        <input type="text" name="ISBN" value="<%=ISBN %>" autocomplete="off" />
+
+        <label>Date of Publication</label>
+        <input type="date" name="date" autocomplete="off" />
+
+        <label>Summary</label>
+        <input type="text" name="summary" autocomplete="off" />
+        <button class="registerbtn" type="submit">Add Book</button><br />
+      </form>
+    </div>
+  </body>
+</html>

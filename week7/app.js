@@ -35,7 +35,8 @@ app.put("/actors/:actorid/:movieid", actors.removeMovieFromActor); // delete an 
 
 //Movie RESTFul  endpoints
 app.get("/movies", movies.getAllMovies); // get all movies
-app.delete("/movies", movies.deleteMoviesInRange); // delete movies which is produced in a range of year
+// app.delete("/movies", movies.deleteMoviesInRange); // delete movies which is produced in a range of year
+app.delete("/movies", movies.deleteMoviesBefore); // delete movies which is produced in a range of year
 app.post("/movies", movies.createOneMovie); // create one movie
 
 app.get("/movies/:id", movies.getOneMovie); // get specifed movie
