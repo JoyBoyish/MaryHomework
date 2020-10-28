@@ -2,6 +2,8 @@
 const bodyParser = require("body-parser");
 const express = require("express");
 const mongoose = require("mongoose");
+const logger = require("morgan");
+
 
 const actors = require("./routers/actor");
 const movies = require("./routers/movie");
@@ -12,6 +14,7 @@ const app = express();
 
 app.listen(8080);
 
+app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/", express.static(path.join(__dirname, "dist/week10")));
@@ -48,3 +51,8 @@ app.delete("/movies", movies.deleteMoviesBefore); // delete movies which is prod
 // app.get("/movies/:year1/:year2", movies.getAllMoviesInRange);
 app.put("/movies/:movieid/:actorid", movies.addActorToMovie);
 app.put("/movies/actors/:movieid/:actorid", movies.removeActorFromMovie); // delete an actor from the list of authors in a movie
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  res.status(404).send('View not Found');
+});
