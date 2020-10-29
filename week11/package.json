@@ -1,5 +1,5 @@
 {
-  "name": "week10",
+  "name": "week11",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -19,10 +19,13 @@
     "@angular/platform-browser": "~10.1.4",
     "@angular/platform-browser-dynamic": "~10.1.4",
     "@angular/router": "~10.1.4",
+    "@types/socket.io-client": "^1.4.34",
     "bootstrap": "^4.5.3",
-    "mongoose": "^5.10.9",
-    "morgan": "^1.10.0",
+    "chart.js": "^2.9.4",
+    "g": "^2.0.1",
+    "ng2-charts": "^2.4.2",
     "rxjs": "~6.6.0",
+    "socket.io-client": "^2.3.1",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
