@@ -1,18 +1,22 @@
-<div>
-  <div class="section" *ngFor="let item of pollObj.options">
-    <div class="custom-control custom-radio">
+<div class="section">
+  <h1>{{ pollObj.question }}</h1>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" ngNativeValidate>
+    <div
+      class="custom-control custom-radio"
+      *ngFor="let item of pollObj.options"
+    >
       <input
+        class="form-check-input"
         type="radio"
-        id="customRadio1"
-        name="customRadio"
-        class="custom-control-input"
+        name="voteRadios"
+        ngModel
+        value="{{ item.value }}"
+        required
       />
-      <label class="custom-control-label" for="customRadio1">{{
-        item.text
-      }}</label>
+      <label class="form-check-label" for="voteRadios">{{ item.text }}</label>
     </div>
-  </div>
-  <button type="submit" class="btn btn-primary" (click)="onVote()">VOTE</button>
+    <button type="submit" class="btn btn-primary">Vote</button>
+  </form>
 </div>
 
 <div style="display: block">
@@ -29,5 +33,5 @@
 </div>
 
 <div class="jumbotron text-center">
-  <p>FIT2095 Chat Application</p>
+  <p>FIT2095 Vote Application</p>
 </div>

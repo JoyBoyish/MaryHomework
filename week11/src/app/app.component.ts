@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import * as io from 'socket.io-client';
 
 import { ChartType, ChartOptions } from 'chart.js';
@@ -15,10 +16,10 @@ import {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  messageText: string;
+export class AppComponent implements OnInit {
   // messages: Array<any> = [];
-  pollObj: Object;
+  postValue: number;
+  pollObj: any;
   socket: SocketIOClient.Socket;
 
   public pieChartOptions: ChartOptions = {
@@ -36,14 +37,11 @@ export class AppComponent {
     monkeyPatchChartJsLegend();
   }
   ngOnInit() {
-    this.pollObj = new Object();
     this.listen2Events();
   }
   listen2Events() {
     this.socket.on('getPollObj', (data) => {
-      // this.messages.push(data);
       this.pollObj = data;
-      console.log(this.pollObj);
       this.updateChart();
     });
   }
@@ -52,14 +50,15 @@ export class AppComponent {
     this.pieChartLabels = [];
     this.pieChartData = [];
 
-    this.pollObj['options'].forEach((element) => {
+    this.pollObj.options.forEach((element) => {
       this.pieChartLabels.push(element.text);
       this.pieChartData.push(element.count);
     });
   }
 
-  sendMessage() {
-    this.socket.emit('newMsg', this.messageText);
-    this.messageText = '';
+  onSubmit(form: NgForm) {
+    this.postValue = form.controls['voteRadios'].value;
+    console.log('emit: ' + this.postValue);
+    this.socket.emit('postPoll', this.postValue);
   }
 }
