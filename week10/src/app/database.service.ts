@@ -62,6 +62,13 @@ export class DatabaseService {
     return this.http.delete(url, httpOptions);
   }
 
+  // update Movie which exists in the database
+  updateMovie(id, data) {
+    /* path parameter */
+    let url = '/movies/' + id;
+    return this.http.put(url, data, httpOptions);
+  }
+
   // delete all movies before year
   deleteMoviesBefore(year) {
     /* query string */

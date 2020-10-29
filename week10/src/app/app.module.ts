@@ -18,6 +18,7 @@ import { DeletemovieComponent } from './deletemovie/deletemovie.component';
 import { ListmoviesComponent } from './listmovies/listmovies.component';
 import { UpdatemovieComponent } from './updatemovie/updatemovie.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { UpdatemovieinfoComponent } from './updatemovieinfo/updatemovieinfo.component';
 
 const appRoutes: Routes = [
   { path: 'listactors', component: ListactorsComponent },
@@ -29,10 +30,11 @@ const appRoutes: Routes = [
   { path: 'addmovie', component: AddmovieComponent },
   { path: 'updatemovie', component: UpdatemovieComponent },
   { path: 'deletemovie', component: DeletemovieComponent },
+  { path: 'updatemovieinfo', component: UpdatemovieinfoComponent },
   { path: '', redirectTo: '/listactors', pathMatch: 'full' },
 
   { path: 'pagenotfound', component: NotFoundPageComponent },
-  { path: '**', redirectTo: '/pagenotfound', pathMatch: 'full' },
+  { path: '**', redirectTo: '/pagenotfound' },
 ];
 
 @NgModule({
@@ -47,6 +49,7 @@ const appRoutes: Routes = [
     ListmoviesComponent,
     UpdatemovieComponent,
     NotFoundPageComponent,
+    UpdatemovieinfoComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

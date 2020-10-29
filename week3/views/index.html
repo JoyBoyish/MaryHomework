@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>warehouse management system</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <form name="addItemForm" action="/newItem/" method="get">
+      <input type="text" placeholder="item name" name="name" />
+      <input type="text" placeholder="item count" name="count" />
+      <input type="text" placeholder="item cost" name="cost" />
+      <button type="submit">add new item</button>
+    </form>
+    <form name="removeItemForm" action="/removeitemid/" method="get">
+      <input type="text" placeholder="delete item" name="removeId" />
+      <button type="submit">delete item</button>
+    </form>
+    <button type="button" onClick="window.location.href = '/getallitems'">
+      List all items
+    </button>
+    <button type="button" onClick="window.location.href = '/getwarehousevalue'">
+      Get warehouse total value
+    </button>
+  </body>
+</html>

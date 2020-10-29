@@ -20,6 +20,7 @@ export class DatabaseService {
   // fetch all actors
   getActors() {
     return this.http.get('/actors');
+    // localhost:8080/actors
   }
   // retrive actor by its ID
   getActor(id: string) {

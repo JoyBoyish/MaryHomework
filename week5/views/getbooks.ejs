@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HR Department System</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+      <a href="/">Home</a>
+      <a href="/addbook">Add Book</a>
+      <a href="/updatebook">Update Book</a>
+      <a href="/deletebook">Delete book</a>
+    </br>
+    <table>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Date</th>
+        <th>ISBN</th>
+        <th>Summary</th>
+      </tr>
+      <% for (let i = 0; i < db.length; i++) { %>
+      <tr>
+        <td><%= i+1 %></td>
+        <td><%= db[i].title %></td>
+        <td><%= db[i].author %></td>
+        <td><%= db[i].date %></td>
+        <td><%= db[i].ISBN %></td>
+        <td><%= db[i].summary %></td>
+      </tr>
+      <% } %>
+    </table>
+  </body>
+</html>

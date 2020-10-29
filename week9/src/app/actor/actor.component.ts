@@ -33,6 +33,7 @@ export class ActorComponent implements OnInit {
   onSaveActor() {
     let obj = { name: this.fullName, bYear: this.bYear };
     this.dbService.createActor(obj).subscribe((result) => {
+      // update actorsDB
       this.onGetActors();
     });
   }
