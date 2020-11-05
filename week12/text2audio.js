@@ -1,5 +1,6 @@
 const fs = require("fs");
-process.env.HTTP_PROXY = 'http://127.0.0.1:7890'; // 就是这里
+process.env.HTTPS_PROXY = 'http://127.0.0.1:7890'; // 就是这里
+const projectId = 'alpine-figure-289200';
 
 
 // Imports the Google Cloud client library
