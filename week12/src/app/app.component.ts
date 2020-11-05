@@ -11,6 +11,7 @@ import * as io from 'socket.io-client';
 export class AppComponent implements OnInit {
   text: string;
   result: string;
+  audioPath: string;
   socket: SocketIOClient.Socket;
 
   constructor() {
@@ -21,17 +22,21 @@ export class AppComponent implements OnInit {
   }
 
   listen2Events() {
-    this.socket.on('getOutput', (result) => {
+    this.socket.on('getTranslate', (result) => {
       this.result = result;
+    });
+
+    this.socket.on('getAudio', (result) => {
+      this.audioPath = result;
     });
   }
 
-  callMe() {
-    let ap = <HTMLAudioElement>document.getElementById('ap');
+  // loadSpeech() {
+  //   let ap = <HTMLAudioElement>document.getElementById('ap');
 
-    ap.src = '1.mp3?time=' + new Date().getTime();
-    ap.load();
-  }
+  //   ap.src = '1.mp3?time=' + new Date().getTime();
+  //   ap.load();
+  // }
 
   onSubmit(form: NgForm) {
     let lang = form.controls['langRadios'].value;

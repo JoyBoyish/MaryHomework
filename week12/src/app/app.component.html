@@ -7,6 +7,7 @@
         class="form-control"
         name="textInput"
         placeholder="Enter sentences"
+        required
       />
     </div>
 
@@ -37,7 +38,7 @@
   </form>
 
   <audio controls id="ap">
-    <source src="horse.mp3" type="audio/mpeg" />
+    <source src="{{ audioPath }}" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
   <div class="alert alert-dark" role="alert">Translations: {{ result }}</div>
