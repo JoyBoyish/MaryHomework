@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
   audioPath: string;
   socket: SocketIOClient.Socket;
 
+  broadcastMsg: string;
+
   constructor() {
     this.socket = io.connect();
   }
@@ -28,15 +30,14 @@ export class AppComponent implements OnInit {
 
     this.socket.on('getAudio', (result) => {
       this.audioPath = result;
+      let ap = <HTMLAudioElement>document.getElementById('ap');
+      ap.load();
+    });
+
+    this.socket.on('getBroadcast', (data) => {
+      this.broadcastMsg = data.id + ': ' + data.result;
     });
   }
-
-  // loadSpeech() {
-  //   let ap = <HTMLAudioElement>document.getElementById('ap');
-
-  //   ap.src = '1.mp3?time=' + new Date().getTime();
-  //   ap.load();
-  // }
 
   onSubmit(form: NgForm) {
     let lang = form.controls['langRadios'].value;

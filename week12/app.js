@@ -44,6 +44,9 @@ io.on("connection", socket => {
 
         // respond to sender individually
         io.to(socket.id).emit("getTranslate", result);
+
+        // respond to all connected clients
+        io.sockets.emit("getBroadcast", {result: result, id: socket.id});
       }
     });
 
@@ -68,17 +71,17 @@ io.on("connection", socket => {
     // Write the binary audio content to a local file
     // We use sockets' id as file name
     let audioPath = socket.id + ".mp3"
-    fs.writeFile(audioPath, response.audioContent, "binary", err => {
+    fs.writeFile("mp3s/" + audioPath, response.audioContent, "binary", err => {
       if (err) {
         console.error("ERROR:", err);
         return;
       }
-      console.log("Audio content written to file: output.mp3");
+      console.log("synthesize complete...");
+      // respond to sender individually
+      io.to(socket.id).emit("getAudio", audioPath);
     });
 
-    console.log("synthesize complete...");
-     // respond to sender individually
-     io.to(socket.id).emit("getAudio", audioPath);
+
   });
     });
 });
