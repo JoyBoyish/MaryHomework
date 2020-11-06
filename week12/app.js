@@ -21,6 +21,7 @@ let app = express();
 let server = require("http").Server(app);
 // attach socket.io to http.server
 let io = require("socket.io")(server);
+let fs = require("fs")
 
 let port = 8080;
 app.use("/", express.static(path.join(__dirname, "dist/week12")));
